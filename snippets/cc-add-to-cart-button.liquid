@@ -1,0 +1,58 @@
+{% if product.metafields.BackOffice.CustomersCanvasLinked %}
+<div>
+  <button id="AddToCart-{{ section.id }}" type="button" target="cc-editor-button" class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+    {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
+    <span id="AddToCartText-{{ section.id }}">
+      {% unless product.selected_or_first_available_variant.available %}
+      	{{ 'products.product.sold_out' | t }}
+      {% else %}
+      	{{ 'Customize Our Templates' }}
+        <!-- comment: earlier it named like this {{ 'Upload Your Designs' }} -->
+      {% endunless %}
+    </span>
+  </button>
+      {% for tag in product.tags %}
+        {% if tag contains 'preflight-ready' %}
+  			 <style>
+                .product-form--payment-button-no-variants {
+                  max-width: 100% !important;
+                }
+  			 </style>
+             <button id="Upload-{{ section.id }}" type="button" target="cc-upload-button" class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+    			{% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}}>
+              <span id="UploadText-{{ section.id }}">
+                {% unless product.selected_or_first_available_variant.available %}
+                  {{ 'products.product.sold_out' | t }}
+                {% else %}
+                  {{ 'Upload Your Artwork' }}
+                {% endunless %}
+              </span>
+            </button>
+        {% endif %}
+      {% endfor %}
+</div>
+{% else %}
+
+  <button
+   	type="submit"
+    name="add"
+    class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+    {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
+      <span>
+        {%- if product.selected_or_first_available_variant.available -%}
+        	{{ 'products.product.add_to_cart' | t }}
+        {%- else -%}
+        	{{ 'products.product.sold_out' | t }}
+        {%- endif -%}
+      </span>
+      <div class="loading-overlay__spinner hidden">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+        </svg>
+      </div>
+  </button>
+  {%- if block.settings.show_dynamic_checkout -%}
+  	{{ form | payment_button }}
+  {%- endif -%}
+
+{% endif %} 
