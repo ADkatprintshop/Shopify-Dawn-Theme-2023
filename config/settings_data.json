@@ -1,5 +1,62 @@
 {
   "current": {
+    "color_schemes": {
+      "background-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#000000",
+          "button": "#037ac3",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#037ac3",
+          "shadow": "#121212"
+        }
+      },
+      "background-2": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#000000",
+          "button": "#000000",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#037ac3",
+          "shadow": "#121212"
+        }
+      },
+      "inverse": {
+        "settings": {
+          "background": "#000000",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#037ac3",
+          "shadow": "#121212"
+        }
+      },
+      "accent-1": {
+        "settings": {
+          "background": "#037ac3",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#037ac3",
+          "secondary_button_label": "#037ac3",
+          "shadow": "#121212"
+        }
+      },
+      "accent-2": {
+        "settings": {
+          "background": "#f16b6a",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#f16b6a",
+          "secondary_button_label": "#037ac3",
+          "shadow": "#121212"
+        }
+      }
+    },
     "favicon": "shopify:\/\/shop_images\/Blue_A_-_Advocate.png",
     "type_header_font": "modern_no_20_n4",
     "heading_scale": 130,
